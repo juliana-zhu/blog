@@ -44,12 +44,16 @@
     ```
 ## 继承
 
++ 原型链
+
+  ![原型链图](/Users/zhulijie/code/github/learningNote/docs/es6/img/原型链.jpg)
+
 + es6
 
   + ```javascript
     class Tiger extends Animal {
       constructor(name) {
-    super(name) // 调用super Animal.call(tiger,name);
+    		super(name) // 调用super Animal.call(tiger,name);
         // super 指代的是父类
         // constructor中的super指代的问题
         console.log(this)
@@ -101,6 +105,4 @@
     console.log(tiger.constructor); // [Function: Tiger]
     ```
 
-+ 参考
-
-  + https://juejin.im/entry/58be60de570c350059b65399
+  
