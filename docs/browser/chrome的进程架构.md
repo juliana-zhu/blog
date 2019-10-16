@@ -2,7 +2,7 @@
 
 ## chrome的最新进程架构图
 
-![](E:\vuepressDocs\learningNote\docs\browser\img\chrome进程架构图.png)
+![](.\img\chrome进程架构图.png)
 
 从图中可以看出，最新的 Chrome 浏览器包括：1 个浏览器（Browser）主进程、1 个 GPU 进程、1 个网络（NetWork）进程、多个渲染进程和多个插件进程。
 
