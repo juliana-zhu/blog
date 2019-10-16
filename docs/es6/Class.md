@@ -44,7 +44,7 @@
     ```
 ## 继承
 
-+ ![原型链继承图](E:\vuepressDocs\learningNote\docs\es6\img\原型链.jpg)
++ ![原型链继承图](.\img\原型链.jpg)
 
 + es6
 
@@ -103,6 +103,4 @@
     console.log(tiger.constructor); // [Function: Tiger]
     ```
 
-+ 参考
-
-  + https://juejin.im/entry/58be60de570c350059b65399
+  
