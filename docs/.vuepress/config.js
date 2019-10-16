@@ -1,24 +1,28 @@
 module.exports = {
+  title: "🐾Juliana's note",
+  description: 'Juliana的学习笔记',
   markdown: {
     lineNumbers: true
   },
   themeConfig: {
     nav: [
       { text: 'Home', link: '/' },
-      { text: 'promise', link: '/promise/' },
     ],
     sidebar: {
-      '/promise/': [
-        '',     /* /foo/ */
-        'one',  /* /foo/one.html */
-        'two'   /* /foo/two.html */
+      '/browser/': [
+        '',
+        'chrome的进程架构',
+        'TCP',
+        'HTTP'
       ],
-
       '/promise/': [
-        '',      /* /bar/ */
-        'one', /* /bar/three.html */
-        'two'   /* /bar/four.html */
+        '',
+        'all&race&try',
+        'others'
       ],
-    }
+    },
+    sidebarDepth: 1,
+    lastUpdated: 'Last Updated',
+    displayAllHeaders: true // 默认值：false
   }
 }
