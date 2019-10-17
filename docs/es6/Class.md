@@ -44,7 +44,7 @@
     ```
 ## 继承
 
-+ ![原型链继承图](img/prototype.jpg)
++ ![原型链继承图](./img/prototype.jpg)
 
 + es6
 
