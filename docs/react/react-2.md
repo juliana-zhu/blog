@@ -2,8 +2,8 @@
 
 ## 旧生命周期
 
-![](./img/react生命周期图 旧.jpg)
+![](./img/react-life-cycle-old.jpg)
 
 ## 新生命周期
 
-![](./img/react生命周期图 新.jpg)
+![](./img/react-life-cycle-new.jpg)
