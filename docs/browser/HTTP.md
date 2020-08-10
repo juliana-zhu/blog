@@ -24,7 +24,7 @@ Chrome 有个机制，同一个域名同时最多只能建立 6 个连接，如�
 
 ## 发送HTTP请求
 
-![](././img/HTTP 请求数据格式.png)
+![](./img/HTTP_request_format.png)
 
 
 ## 服务端处理HTTP请求

@@ -90,28 +90,28 @@
     ```
 
 ## 属性校验 默认属性
-    ```javascript 1.6
-    import React from 'react';
-    import ReactDOM from 'react-dom';
-    import PropTypes from 'prop-types'; //引入属性校验的模块
-    // propTypes和defaultProps名字不能更改，这是react规定好的名称
-    class School extends React.Component{ // 类上的属性就叫静态属性
-        static propTypes = { // 校验属性的类型和是否必填
-            age:PropTypes.number.isRequired, // 支持的类型可以参考prop-types的readme文件
-        };
-        static defaultProps = { // 先默认调用defaultProps
-            name:'abc',
-            age:1
-        }; // 默认属性
-        constructor(props){ //如果想在构造函数中拿到属性需要通过参数的方式
-             //不能在组件中更改属性 不能修改属性*
-            super();
-        }
-        render(){
-            return <h1>{this.props.name} {this.props.age}</h1>
-        }
+```javascript
+import React from 'react';
+import ReactDOM from 'react-dom';
+import PropTypes from 'prop-types'; //引入属性校验的模块
+// propTypes和defaultProps名字不能更改，这是react规定好的名称
+class School extends React.Component{ // 类上的属性就叫静态属性
+    static propTypes = { // 校验属性的类型和是否必填
+        age:PropTypes.number.isRequired, // 支持的类型可以参考prop-types的readme文件
+    };
+    static defaultProps = { // 先默认调用defaultProps
+        name:'abc',
+        age:1
+    }; // 默认属性
+    constructor(props){ //如果想在构造函数中拿到属性需要通过参数的方式
+         //不能在组件中更改属性 不能修改属性*
+        super();
     }
-    ```
+    render(){
+        return <h1>{this.props.name} {this.props.age}</h1>
+    }
+}
+```
 
 ## 复合组件
 + 父子通信
@@ -179,3 +179,34 @@
     - 可以赋予默认值
 + 非受控组件
     - 通过refs得到绑定的dom元素
+
+## 访问真实DOM节点
+
+```javascript
+// 获取ref的三种方法
+
+// 当ref的值是一个字符串时
+<input ref="a" />+<input ref="b" /><button onClick={this.handleAdd}>=</button><input ref="c" />
+let a = (this.refs.a as HTMLInputElement).value; // 获取ref
+
+// 当ref是一个函数
+<input ref={ref => this.a = ref} />+<input ref={ref => this.b = ref} /><button onClick={this.handleAdd}>=</button><input ref={ref => this.result = ref} />
+let a = this.a.value; // 获取ref
+
+// 给dom元素设置ref
+this.a = React.createRef();
+<input ref={this.a} />+<input ref={this.b} /><button onClick={this.handleAdd}>=</button><input ref={this.result} />
+let a = this.a.current.value; // 获取ref
+```
+
+## 状态
+
+- 组件的数据来源有两个地方，分别是**属性对象**(props)和**状态对象**(state)
+- 属性是父组件传递过来的(默认属性，属性校验)
+- 状态是自己内部的,改变状态唯一的方式就是`setState`
+- 属性和状态的变化都会影响视图更新
+- 构造函数是唯一可以给 `this.state` 赋值的地方，其他地方都要使用`setState`来设置
+- 出于性能考虑，React 可能会把多个 setState() 调用合并成一个调用，因此有时可能会出现数据没有更新的现象
+- 因为 this.props 和 this.state 可能会异步更新，所以你不要依赖他们的值来更新下一个状态
+- 可以让 setState() **接收一个函数**而不是一个对象。这个函数用上一个 state 作为第一个参数
+

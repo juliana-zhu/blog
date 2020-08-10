@@ -2,6 +2,10 @@
 
 # 事件环
 
+## 浏览器的事件环
+
+![eventloop2](http://img.zhufengpeixun.cn/eventloop2.png)
+
 + 执行顺序：主栈代码->清空微任务队列->取出一个宏任务执行->再清空微任务
 
 ```
@@ -75,3 +79,59 @@ console.log('script end')
 └──-┤    close callbacks    │ 关闭事件的回调 socket.close事件
     └──────────────────────—┘
 ```
+
++ ![img](http://img.zhufengpeixun.cn/nodelibuv2.jpg)
++ ![img](http://img.zhufengpeixun.cn/nodeeventloop.jpg)
++ 这里的**每一个阶段**都对应着一个**事件队列**
++ 每当event loop执行到某个阶段时，都会执行对应的事件队列中的事件，依次执行
++ 当该队列执行完毕或者执行数量超过上限，event loop就会执行下一个阶段
++ 每当event loop切换一个执行队列时，就会去清空microtasks queues，然后再切换到下个队列去执行，如此反复
++ nextTick独立于时间环，有自己的队列，优先级比微任务高
+
+```javascript
+setImmediate(()=>{
+  console.log('setImmediate1')
+  process.nextTick(()=>{console.log('nextTick2')})
+  setTimeout(()=>{
+    console.log('setTimeout1')
+  },0)
+})
+setTimeout(()=>{
+  console.log('setTimeout2')
+  process.nextTick(()=>{console.log('nextTick1')})
+  setImmediate(()=>{
+    console.log('setImmediate2')
+  })
+},0)
+
+/**
+ setTimeout2
+ nextTick1
+ setImmediate1
+ nextTick2
+ setImmediate2
+ setTimeout1
+ */
+
+// setImmediate1执行, 把callback放入check事件队列
+// 执行setTimeout2, 把callback放入timer事件队列
+// 由于timer比check先执行，所以取出timer事件队列执行
+// 输出setTimeout2
+// 把process.nextTick的callback放入当前timer的微任务队列
+// 把setImmediate2的callback放入check事件队列
+// 清空timer事件队列的微任务队列
+// 输出nextTick1
+// 取出check事件队列的一个宏任务执行
+// 输出setImmediate1
+// 把setTimeout1推入timer事件队列的宏任务中
+// 清空timer事件队列的微任务队列
+// 输出nextTick2
+// 取出check事件队列的一个宏任务执行
+// 输出setImmediate2
+// check事件队列完成，进入下一个事件循环
+// 取出timer事件队列的宏任务
+// 输出setTimeout1
+
+
+```
+
