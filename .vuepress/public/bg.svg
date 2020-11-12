@@ -1,0 +1,45 @@
+<svg
+  version="1.1"
+  baseProfile="full"
+  width="100%" height="100%"
+  xmlns="http://www.w3.org/2000/svg"
+  viewBox="0 0 1400 800"
+>
+
+  <rect x="1300" y="400" rx="40" ry="40" width="300" height="300" stroke="rgb(129, 201, 149)" fill="rgb(129, 201, 149)">
+    <animateTransform attributeType="XML" attributeName="transform" begin="0s" dur="35s" type="rotate" from="0 1450 550" to="360 1450 550" repeatCount="indefinite" />
+  </rect>
+
+  <path d="M 100 350 A 150 150 0 1 1 400 350 Q400 370 380 370 L 250 370 L 120 370 Q100 370 100 350" stroke="rgb(253, 214, 99)" fill="rgb(253, 214, 99)">
+    <animateMotion path="M 800 -200 L 800 -300 L 800 -200" dur="20s" begin="0s" repeatCount="indefinite" />
+    <animateTransform attributeType="XML" attributeName="transform" begin="0s" dur="30s" type="rotate" values="0 210 530 ; -30 210 530 ; 0 210 530" keyTimes="0 ; 0.5 ; 1" repeatCount="indefinite" />
+  </path>
+
+  <circle cx="200" cy="150" r="20" stroke="#1a73e8" fill="#1a73e8">
+    <animateMotion path="M 0 0 L 40 20 Z" dur="5s" repeatCount="indefinite" />
+  </circle>
+
+  <!-- 三角形 -->
+  <path d="M 165 580 L 270 580 Q275 578 270 570 L 223 483 Q220 480 217 483 L 165 570 Q160 578 165 580" stroke="rgb(251, 155, 95)" fill="rgb(251, 155, 95)">
+    <animateTransform attributeType="XML" attributeName="transform" begin="0s" dur="35s" type="rotate" from="0 210 530" to="360 210 530" repeatCount="indefinite" />
+  </path>
+
+  <circle cx="1200" cy="600" r="30" stroke="rgb(241, 243, 244)" fill="rgb(241, 243, 244)">
+    <animateMotion path="M 0 0 L -20 40 Z" dur="9s" repeatCount="indefinite" />
+  </circle>
+
+  <path d="M 100 350 A 40 40 0 1 1 180 350 L 180 430 A 40 40 0 1 1 100 430 Z" stroke="rgb(241, 243, 244)" fill="rgb(241, 243, 244)">
+    <animateMotion path="M 140 390 L 180 360 L 140 390" dur="20s" begin="0s" repeatCount="indefinite" />
+    <animateTransform attributeType="XML" attributeName="transform" begin="0s" dur="30s" type="rotate" values="0 140 390; -60 140 390; 0 140 390" keyTimes="0 ; 0.5 ; 1" repeatCount="indefinite" />
+  </path>
+
+  <rect x="400" y="600" rx="40" ry="40" width="100" height="100" stroke="rgb(129, 201, 149)" fill="rgb(129, 201, 149)">
+    <animateTransform attributeType="XML" attributeName="transform" begin="0s" dur="35s" type="rotate" from="-30 550 750" to="330 550 750" repeatCount="indefinite" />
+  </rect>
+
+<!--  <circle class="ball" r="13.53787" cy="287.50003" cx="279.99998"/>-->
+
+  <path class="cat" stroke="#ef675c" stroke-width="4" fill="rgba(0,0,0,0)" d="m396.35663,311.25821c-13.41742,-10.47318 -28.76758,-3.96683 -43.5509,-4.75632c-12.93182,-11.07962 -28.66629,2.3475 -40.85934,-8.33789c-15.77493,-14.05475 11.56558,-22.86807 5.7373,-39.56415c-0.65771,-24.0419 -10.94836,-45.81717 -21.77539,-66.02428c-7.65988,-16.06839 -4.94803,-34.53508 -7.41699,-51.7166c-8.85388,-12.34473 -17.69766,-27.62405 -7.16412,-42.87289c11.90973,-12.87106 6.30396,-29.77943 1.62924,-44.65391c12.03101,3.54156 25.85321,19.66071 41.68884,16.43285c10.75632,-6.93137 17.29297,-0.08103 19.09409,12.61797c5.64624,16.29109 8.93484,38.5827 26.75375,43.83432c18.70941,5.34254 39.6553,6.52644 54.44867,22.20027c27.06769,25.3474 39.60474,65.31624 38.552,103.83789c2.43921,18.01105 25.04413,8.44919 36.23547,11.10004c18.74976,-0.82904 36.76111,5.06967 54.91443,9.1069c16.20013,4.31042 29.92078,-9.31888 45.14905,-10.9483c2.57037,15.745 -17.41418,22.30164 -28.33221,27.15833c-12.95184,5.51471 -26.98676,5.64691 -40.29266,1.6095c-28.78772,-7.18442 -59.29565,-5.29221 -86.63629,7.31573c-14.76294,5.44357 -29.09103,15.73447 -45.14957,14.43954l-3.02536,-0.77902l0,0l0,0z" >
+    <animateMotion xmlns="http://www.w3.org/2000/svg" path="M 400 200 L 300 100 L 400 200" dur="20s" begin="0s" repeatCount="indefinite"/>
+  </path>
+</svg>
