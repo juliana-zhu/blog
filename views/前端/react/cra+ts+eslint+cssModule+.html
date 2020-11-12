@@ -1,0 +1,403 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>cra+TS+eslint+cssModule最佳实践 | 🐾前端meow同学</title>
+    <meta name="generator" content="VuePress 1.7.1">
+    <link rel="icon" href="/favicon.ico">
+    <meta name="description" content="Juliana">
+    <meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=no">
+    
+    <link rel="preload" href="/assets/css/0.styles.cf6f8f22.css" as="style"><link rel="preload" href="/assets/js/app.0817803c.js" as="script"><link rel="preload" href="/assets/js/3.055572ae.js" as="script"><link rel="preload" href="/assets/js/1.0a0762c3.js" as="script"><link rel="preload" href="/assets/js/24.978b984e.js" as="script"><link rel="prefetch" href="/assets/js/10.46503d20.js"><link rel="prefetch" href="/assets/js/11.eebe22b0.js"><link rel="prefetch" href="/assets/js/12.51592c04.js"><link rel="prefetch" href="/assets/js/13.9ee963f4.js"><link rel="prefetch" href="/assets/js/14.01eaeaf1.js"><link rel="prefetch" href="/assets/js/15.59f56f60.js"><link rel="prefetch" href="/assets/js/16.8129f68c.js"><link rel="prefetch" href="/assets/js/17.212124e1.js"><link rel="prefetch" href="/assets/js/18.04104512.js"><link rel="prefetch" href="/assets/js/19.c83c990d.js"><link rel="prefetch" href="/assets/js/20.23639bc9.js"><link rel="prefetch" href="/assets/js/21.e336c0b0.js"><link rel="prefetch" href="/assets/js/22.d14888fd.js"><link rel="prefetch" href="/assets/js/23.31d2332a.js"><link rel="prefetch" href="/assets/js/25.302f3ef3.js"><link rel="prefetch" href="/assets/js/26.3c5d7ffe.js"><link rel="prefetch" href="/assets/js/27.de1e5b12.js"><link rel="prefetch" href="/assets/js/28.b6756f91.js"><link rel="prefetch" href="/assets/js/29.d0cb7cf7.js"><link rel="prefetch" href="/assets/js/30.414da6cf.js"><link rel="prefetch" href="/assets/js/31.abd5a5a7.js"><link rel="prefetch" href="/assets/js/32.2a515833.js"><link rel="prefetch" href="/assets/js/33.04cc8f35.js"><link rel="prefetch" href="/assets/js/34.08f61ed4.js"><link rel="prefetch" href="/assets/js/35.4505e0fa.js"><link rel="prefetch" href="/assets/js/36.67527f48.js"><link rel="prefetch" href="/assets/js/37.195b3865.js"><link rel="prefetch" href="/assets/js/38.8b3636c4.js"><link rel="prefetch" href="/assets/js/4.2653c209.js"><link rel="prefetch" href="/assets/js/5.6bcd4f5c.js"><link rel="prefetch" href="/assets/js/6.cd1151f1.js"><link rel="prefetch" href="/assets/js/7.1d32aa85.js"><link rel="prefetch" href="/assets/js/8.410ba797.js"><link rel="prefetch" href="/assets/js/9.9f0f73c9.js">
+    <link rel="stylesheet" href="/assets/css/0.styles.cf6f8f22.css">
+  </head>
+  <body>
+    <div id="app" data-server-rendered="true"><div class="theme-container no-sidebar" data-v-2d5f533b><div data-v-2d5f533b><div id="loader-wrapper" class="loading-wrapper" data-v-d48f4d20 data-v-2d5f533b data-v-2d5f533b><div class="loader-main" data-v-d48f4d20><div data-v-d48f4d20></div><div data-v-d48f4d20></div><div data-v-d48f4d20></div><div data-v-d48f4d20></div></div> <!----> <!----></div> <div class="password-shadow password-wrapper-out" style="display:none;" data-v-64685f0e data-v-2d5f533b data-v-2d5f533b><h3 class="title" style="display:none;" data-v-64685f0e data-v-64685f0e>🐾前端meow同学</h3> <!----> <label id="box" class="inputBox" style="display:none;" data-v-64685f0e data-v-64685f0e><input type="password" value="" data-v-64685f0e> <span data-v-64685f0e>Konck! Knock!</span> <button data-v-64685f0e>OK</button></label> <div class="footer" style="display:none;" data-v-64685f0e data-v-64685f0e><span data-v-64685f0e><i class="iconfont reco-theme" data-v-64685f0e></i> <a target="blank" href="https://vuepress-theme-reco.recoluan.com" data-v-64685f0e>vuePress-theme-reco</a></span> <span data-v-64685f0e><i class="iconfont reco-copyright" data-v-64685f0e></i> <a data-v-64685f0e><span data-v-64685f0e>Juliana</span>
+            
+          <span data-v-64685f0e>2019 - </span>
+          2020
+        </a></span></div></div> <div class="hide" data-v-2d5f533b><header class="navbar" data-v-2d5f533b><div class="sidebar-button"><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" viewBox="0 0 448 512" class="icon"><path fill="currentColor" d="M436 124H12c-6.627 0-12-5.373-12-12V80c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12z"></path></svg></div> <a href="/" class="home-link router-link-active"><img src="/avatar.jpeg" alt="🐾前端meow同学" class="logo"> <span class="site-name">🐾前端meow同学</span></a> <div class="links"><div class="color-picker"><a class="color-button"><i class="iconfont reco-color"></i></a> <div class="color-picker-menu" style="display:none;"><div class="mode-options"><h4 class="title">Choose mode</h4> <ul class="color-mode-options"><li class="dark">dark</li><li class="auto active">auto</li><li class="light">light</li></ul></div></div></div> <div class="search-box"><i class="iconfont reco-search"></i> <input aria-label="Search" autocomplete="off" spellcheck="false" value=""> <!----></div> <nav class="nav-links can-hide"><div class="nav-item"><a href="/" class="nav-link"><i class="iconfont reco-coding"></i>
+  主页
+</a></div><div class="nav-item"><div class="dropdown-wrapper"><a class="dropdown-title"><span class="title"><i class="iconfont reco-category"></i>
+      分类
+    </span> <span class="arrow right"></span></a> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/categories/前端/" class="nav-link"><i class="iconfont undefined"></i>
+  前端
+</a></li></ul></div></div><div class="nav-item"><a href="/tag/" class="nav-link"><i class="iconfont reco-tag"></i>
+  标签
+</a></div> <!----></nav></div></header> <div class="sidebar-mask" data-v-2d5f533b></div> <aside class="sidebar" data-v-2d5f533b><div class="personal-info-wrapper" data-v-ca798c94 data-v-2d5f533b><img src="/avatar.jpeg" alt="author-avatar" class="personal-img" data-v-ca798c94> <h3 class="name" data-v-ca798c94>
+    Juliana
+  </h3> <div class="num" data-v-ca798c94><div data-v-ca798c94><h3 data-v-ca798c94>27</h3> <h6 data-v-ca798c94>文章</h6></div> <div data-v-ca798c94><h3 data-v-ca798c94>21</h3> <h6 data-v-ca798c94>标签</h6></div></div> <hr data-v-ca798c94></div> <nav class="nav-links"><div class="nav-item"><a href="/" class="nav-link"><i class="iconfont reco-coding"></i>
+  主页
+</a></div><div class="nav-item"><div class="dropdown-wrapper"><a class="dropdown-title"><span class="title"><i class="iconfont reco-category"></i>
+      分类
+    </span> <span class="arrow right"></span></a> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/categories/前端/" class="nav-link"><i class="iconfont undefined"></i>
+  前端
+</a></li></ul></div></div><div class="nav-item"><a href="/tag/" class="nav-link"><i class="iconfont reco-tag"></i>
+  标签
+</a></div> <!----></nav> <!----> </aside> <div class="password-shadow password-wrapper-in" style="display:none;" data-v-64685f0e data-v-2d5f533b><h3 class="title" style="display:none;" data-v-64685f0e data-v-64685f0e>cra+TS+eslint+cssModule最佳实践</h3> <!----> <label id="box" class="inputBox" style="display:none;" data-v-64685f0e data-v-64685f0e><input type="password" value="" data-v-64685f0e> <span data-v-64685f0e>Konck! Knock!</span> <button data-v-64685f0e>OK</button></label> <div class="footer" style="display:none;" data-v-64685f0e data-v-64685f0e><span data-v-64685f0e><i class="iconfont reco-theme" data-v-64685f0e></i> <a target="blank" href="https://vuepress-theme-reco.recoluan.com" data-v-64685f0e>vuePress-theme-reco</a></span> <span data-v-64685f0e><i class="iconfont reco-copyright" data-v-64685f0e></i> <a data-v-64685f0e><span data-v-64685f0e>Juliana</span>
+            
+          <span data-v-64685f0e>2019 - </span>
+          2020
+        </a></span></div></div> <div data-v-2d5f533b><main class="page"><div class="page-title" style="display:none;"><h1 class="title">cra+TS+eslint+cssModule最佳实践</h1> <div data-v-3b7f5bdf><i class="iconfont reco-account" data-v-3b7f5bdf><span data-v-3b7f5bdf>Juliana</span></i> <i class="iconfont reco-date" data-v-3b7f5bdf><span data-v-3b7f5bdf>2020-07-15</span></i> <!----> <i class="iconfont reco-tag tags" data-v-3b7f5bdf><span class="tag-item" data-v-3b7f5bdf>React</span><span class="tag-item" data-v-3b7f5bdf>TypeScript</span><span class="tag-item" data-v-3b7f5bdf>Eslint</span><span class="tag-item" data-v-3b7f5bdf>CssModule</span></i></div></div> <div class="theme-reco-content content__default" style="display:none;"><div class="custom-block tip"><p>你是否还在为了搭建一个企业级的react框架而发愁，是否有如下问题：</p> <ul><li>eslint要怎么配置才能兼容ts？</li> <li>react项目要怎么样才能实现样式隔离？</li> <li>怎么才能让团队成员统一提交代码的格式？</li></ul></div> <h1 id="cra-ts-eslint-cssmodule最佳实践"><a href="#cra-ts-eslint-cssmodule最佳实践" class="header-anchor">#</a> cra+TS+eslint+cssModule最佳实践</h1> <p>如果你有以上问题，那么这就是你需要的实践方案！我们将一步步实现。什么？太长了不想看？那么你可以直接使用cra模板来创建项目，开箱即用~</p> <div class="language-sh line-numbers-mode"><pre class="language-sh"><code>npx create-react-app my-app --template quickdva
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br></div></div><h2 id="创建cra项目"><a href="#创建cra项目" class="header-anchor">#</a> 创建cra项目</h2> <p>这里我们使用typescript模板</p> <div class="language-sh line-numbers-mode"><pre class="language-sh"><code>npx create-react-app my-app --template typescript
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br></div></div><h2 id="使用rewrited"><a href="#使用rewrited" class="header-anchor">#</a> 使用rewrited</h2> <p>因为我们之后要修改webpack的配置，所以我们需要重写官方的默认配置，在这里我使用的是<code>react-app-rewired</code>，你也可以使用<code>eject</code>命令，改命令会把webpack的配置暴露出来你可以随意修改。</p> <div class="language-shell line-numbers-mode"><pre class="language-shell"><code><span class="token function">yarn</span> <span class="token function">add</span> react-app-rewired -D
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br></div></div><div class="language-diff line-numbers-mode"><pre class="language-diff"><code><span class="token unchanged"><span class="token prefix unchanged"> </span><span class="token line"> /* package.json */
+</span></span>
+<span class="token unchanged"><span class="token prefix unchanged"> </span><span class="token line"> &quot;scripts&quot;: {
+</span></span><span class="token deleted-sign deleted"><span class="token prefix deleted">-</span><span class="token line">   &quot;start&quot;: &quot;react-scripts start&quot;,
+</span></span><span class="token inserted-sign inserted"><span class="token prefix inserted">+</span><span class="token line">   &quot;start&quot;: &quot;react-app-rewired start&quot;,
+</span></span><span class="token deleted-sign deleted"><span class="token prefix deleted">-</span><span class="token line">   &quot;build&quot;: &quot;react-scripts build&quot;,
+</span></span><span class="token inserted-sign inserted"><span class="token prefix inserted">+</span><span class="token line">   &quot;build&quot;: &quot;react-app-rewired build&quot;,
+</span></span><span class="token deleted-sign deleted"><span class="token prefix deleted">-</span><span class="token line">   &quot;test&quot;: &quot;react-scripts test&quot;,
+</span></span><span class="token inserted-sign inserted"><span class="token prefix inserted">+</span><span class="token line">   &quot;test&quot;: &quot;react-app-rewired test&quot;,
+</span></span><span class="token unchanged"><span class="token prefix unchanged"> </span><span class="token line">   &quot;eject&quot;: &quot;react-scripts eject&quot;
+</span></span>}
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br></div></div><p>在根目录下新建一个<code>config-overrides.js</code>文件，我们暂时不写内容</p> <div class="language- line-numbers-mode"><pre class="language-text"><code>module.exports = {
+
+}
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br></div></div><h2 id="引入eslint"><a href="#引入eslint" class="header-anchor">#</a> 引入eslint</h2> <p>在根目录下创建<code>.eslintrc.js</code>文件</p> <div class="language-javascript line-numbers-mode"><pre class="language-javascript"><code>module<span class="token punctuation">.</span>exports <span class="token operator">=</span> <span class="token punctuation">{</span>
+  root<span class="token operator">:</span> <span class="token boolean">true</span><span class="token punctuation">,</span>
+  parser<span class="token operator">:</span> <span class="token string">'@typescript-eslint/parser'</span><span class="token punctuation">,</span> <span class="token comment">// Specifies the ESLint parser</span>
+  plugins<span class="token operator">:</span> <span class="token punctuation">[</span><span class="token string">'react-app'</span><span class="token punctuation">,</span><span class="token string">'@typescript-eslint'</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
+  <span class="token keyword">extends</span><span class="token operator">:</span> <span class="token punctuation">[</span>
+    <span class="token string">'plugin:react-app/recommended'</span><span class="token punctuation">,</span>
+    <span class="token string">'eslint:recommended'</span><span class="token punctuation">,</span>
+    <span class="token string">'plugin:@typescript-eslint/recommended'</span><span class="token punctuation">,</span> <span class="token comment">// Uses the recommended rules from the @typescript-eslint/eslint-plugin</span>
+  <span class="token punctuation">]</span><span class="token punctuation">,</span>
+  rules<span class="token operator">:</span> <span class="token punctuation">{</span>
+    <span class="token string">'@typescript-eslint/explicit-function-return-type'</span><span class="token operator">:</span> <span class="token number">0</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span><span class="token punctuation">;</span>
+
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br></div></div><p>在根目录创建<code>.env</code>文件，设置EXTEND_ESLINT=true来<a href="https://create-react-app.dev/docs/setting-up-your-editor/#experimental-extending-the-eslint-config" target="_blank" rel="noopener noreferrer">扩展基本ESLint配置<span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></p> <div class="language- line-numbers-mode"><pre class="language-text"><code>EXTEND_ESLINT=true
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br></div></div><p>要使<code>eslintrc</code>文件生效，你还需要删除<code>package.json</code>文件里的<code>eslintConfig</code></p> <div class="language-diff line-numbers-mode"><pre class="language-diff"><code><span class="token deleted-sign deleted"><span class="token prefix deleted">-</span><span class="token line">  &quot;eslintConfig&quot;: {
+</span><span class="token prefix deleted">-</span><span class="token line">    &quot;extends&quot;: &quot;react-app&quot;
+</span><span class="token prefix deleted">-</span><span class="token line">  },
+</span></span></code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br></div></div><p>此时再次启动项目会发现报如下错误，说明已经使用了我们自定义的eslint配置</p> <div class="language-text line-numbers-mode"><pre class="language-text"><code>Failed to load plugin 'react-app' declared in '.eslintrc.js': Cannot find module 'eslint-plugin-react-app'
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br></div></div><p>安装所需依赖</p> <div class="language-shell line-numbers-mode"><pre class="language-shell"><code><span class="token function">yarn</span> <span class="token function">add</span> eslint-plugin-react-app typescript @typescript-eslint/parser @typescript-eslint/eslint-plugin -D 
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br></div></div><p>然鹅我发现事情并不那么简单，启动后发现eslint报了个警告。我们在rules里不是配置了<code>'@typescript-eslint/explicit-function-return-type': 0</code>么？我明明照着官网配置的~</p> <div class="language- line-numbers-mode"><pre class="language-text"><code>
+./src/App.tsx
+  Line 5:1:  Missing return type on function  @typescript-eslint/explicit-function-return-type
+
+Search for the keywords to learn more about each warning.
+To ignore, add // eslint-disable-next-line to the line before.
+
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br></div></div><p>一番搜索，发现是<code>create-react-app</code>的<a href="https://github.com/facebook/create-react-app/issues/9007" target="_blank" rel="noopener noreferrer">issue<span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a>，issue的解决方案是修改<code>node_modules/react-scripts/config/webpack.config.js</code>文件下的<code>cache</code>改为<code>false</code>，试过之后的确可行，但是我不可能通知团队成员修改源码吧。一定还有其他的方案。</p> <div class="language-diff line-numbers-mode"><pre class="language-diff"><code>use: [
+<span class="token unchanged"><span class="token prefix unchanged"> </span><span class="token line">           {
+</span><span class="token prefix unchanged"> </span><span class="token line">             options: {
+</span></span><span class="token deleted-sign deleted"><span class="token prefix deleted">-</span><span class="token line">                cache: true,
+</span></span><span class="token inserted-sign inserted"><span class="token prefix inserted">+</span><span class="token line">                cache: false,
+</span></span><span class="token unchanged"><span class="token prefix unchanged"> </span><span class="token line">               formatter: require.resolve('react-dev-utils/eslintFormatter'),
+</span><span class="token prefix unchanged"> </span><span class="token line">               eslintPath: require.resolve('eslint'),
+</span><span class="token prefix unchanged"> </span><span class="token line">               resolvePluginsRelativeTo: __dirname,
+</span><span class="token prefix unchanged"> </span><span class="token line">               // @remove-on-eject-begin
+</span><span class="token prefix unchanged"> </span><span class="token line">               ignore: isExtendingEslintConfig,
+</span><span class="token prefix unchanged"> </span><span class="token line">               baseConfig: isExtendingEslintConfig
+</span><span class="token prefix unchanged"> </span><span class="token line">                 ? undefined
+</span><span class="token prefix unchanged"> </span><span class="token line">                 : {
+</span><span class="token prefix unchanged"> </span><span class="token line">                     extends: [require.resolve('eslint-config-react-app')],
+</span><span class="token prefix unchanged"> </span><span class="token line">                   },
+</span><span class="token prefix unchanged"> </span><span class="token line">               useEslintrc: isExtendingEslintConfig,
+</span><span class="token prefix unchanged"> </span><span class="token line">               // @remove-on-eject-end
+</span><span class="token prefix unchanged"> </span><span class="token line">             },
+</span></span></code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br><span class="line-number">16</span><br><span class="line-number">17</span><br><span class="line-number">18</span><br></div></div><p>想了一下，既然使用了<code>react-app-rewired</code>我们就能覆盖<code>webpack</code>的配置。于是第二种解决方案就是覆盖<code>webpack</code>的默认配置，我们使用<a href="https://github.com/arackaf/customize-cra" target="_blank" rel="noopener noreferrer"><code>customize-cra</code><span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a>来重写配置，暴力破解：</p> <div class="language-shell line-numbers-mode"><pre class="language-shell"><code><span class="token function">yarn</span> <span class="token function">add</span> customize-cra -D
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br></div></div><div class="language-javascript line-numbers-mode"><pre class="language-javascript"><code><span class="token comment">/*config-overrides.js*/</span>
+
+<span class="token keyword">const</span> <span class="token punctuation">{</span>
+    override<span class="token punctuation">,</span>
+<span class="token punctuation">}</span> <span class="token operator">=</span> <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">'customize-cra'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token keyword">const</span> eslintConfig <span class="token operator">=</span> <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">'./.eslintrc.js'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token keyword">const</span> <span class="token function-variable function">useEslintConfig</span> <span class="token operator">=</span> <span class="token parameter">configRules</span> <span class="token operator">=&gt;</span> <span class="token parameter">config</span> <span class="token operator">=&gt;</span> <span class="token punctuation">{</span>
+  <span class="token keyword">const</span> updatedRules <span class="token operator">=</span> config<span class="token punctuation">.</span>module<span class="token punctuation">.</span>rules<span class="token punctuation">.</span><span class="token function">map</span><span class="token punctuation">(</span><span class="token parameter">rule</span> <span class="token operator">=&gt;</span> <span class="token punctuation">{</span>
+    <span class="token comment">// Only target rules that have defined a `useEslintrc` parameter in their options</span>
+    <span class="token keyword">if</span> <span class="token punctuation">(</span>rule<span class="token punctuation">.</span>use <span class="token operator">&amp;&amp;</span> rule<span class="token punctuation">.</span>use<span class="token punctuation">.</span><span class="token function">some</span><span class="token punctuation">(</span><span class="token parameter">use</span> <span class="token operator">=&gt;</span> use<span class="token punctuation">.</span>options <span class="token operator">&amp;&amp;</span> use<span class="token punctuation">.</span>options<span class="token punctuation">.</span>useEslintrc <span class="token operator">!==</span> <span class="token keyword">void</span> <span class="token number">0</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+      <span class="token keyword">const</span> ruleUse <span class="token operator">=</span> rule<span class="token punctuation">.</span>use<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+      <span class="token keyword">const</span> baseOptions <span class="token operator">=</span> ruleUse<span class="token punctuation">.</span>options<span class="token punctuation">;</span>
+      <span class="token keyword">const</span> baseConfig <span class="token operator">=</span> baseOptions<span class="token punctuation">.</span>baseConfig <span class="token operator">||</span> <span class="token punctuation">{</span><span class="token punctuation">}</span><span class="token punctuation">;</span>
+      <span class="token keyword">const</span> newOptions <span class="token operator">=</span> <span class="token punctuation">{</span>
+        useEslintrc<span class="token operator">:</span> <span class="token boolean">false</span><span class="token punctuation">,</span>
+        ignore<span class="token operator">:</span> <span class="token boolean">true</span><span class="token punctuation">,</span>
+        baseConfig<span class="token operator">:</span> <span class="token punctuation">{</span> <span class="token operator">...</span>baseConfig<span class="token punctuation">,</span> <span class="token operator">...</span>configRules <span class="token punctuation">}</span><span class="token punctuation">,</span>
+      <span class="token punctuation">}</span><span class="token punctuation">;</span>
+      ruleUse<span class="token punctuation">.</span>options <span class="token operator">=</span> newOptions<span class="token punctuation">;</span>
+      <span class="token keyword">return</span> rule<span class="token punctuation">;</span>
+
+      <span class="token comment">// Rule not using eslint. Do not modify.</span>
+    <span class="token punctuation">}</span> <span class="token keyword">else</span> <span class="token punctuation">{</span>
+      <span class="token keyword">return</span> rule<span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+  <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+  config<span class="token punctuation">.</span>module<span class="token punctuation">.</span>rules <span class="token operator">=</span> updatedRules<span class="token punctuation">;</span>
+  <span class="token keyword">return</span> config<span class="token punctuation">;</span>
+<span class="token punctuation">}</span><span class="token punctuation">;</span>
+module<span class="token punctuation">.</span>exports <span class="token operator">=</span> <span class="token punctuation">{</span>
+    webpack<span class="token operator">:</span> <span class="token function">override</span><span class="token punctuation">(</span>
+        <span class="token function">useEslintConfig</span><span class="token punctuation">(</span>eslintConfig<span class="token punctuation">)</span><span class="token punctuation">,</span>
+    <span class="token punctuation">)</span><span class="token punctuation">,</span>
+<span class="token punctuation">}</span>
+
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br><span class="line-number">16</span><br><span class="line-number">17</span><br><span class="line-number">18</span><br><span class="line-number">19</span><br><span class="line-number">20</span><br><span class="line-number">21</span><br><span class="line-number">22</span><br><span class="line-number">23</span><br><span class="line-number">24</span><br><span class="line-number">25</span><br><span class="line-number">26</span><br><span class="line-number">27</span><br><span class="line-number">28</span><br><span class="line-number">29</span><br><span class="line-number">30</span><br><span class="line-number">31</span><br><span class="line-number">32</span><br><span class="line-number">33</span><br><span class="line-number">34</span><br><span class="line-number">35</span><br><span class="line-number">36</span><br><span class="line-number">37</span><br></div></div><p>这时候我们重启发现一切都是那么顺利☀️</p> <h2 id="加入prittier"><a href="#加入prittier" class="header-anchor">#</a> 加入prittier</h2> <p>团队协作少不了的代码格式化利器</p> <p>在根目录加入<code>.prettierrc</code>文件</p> <div class="language-json line-numbers-mode"><pre class="language-json"><code><span class="token punctuation">{</span>
+  <span class="token property">&quot;singleQuote&quot;</span><span class="token operator">:</span> <span class="token boolean">true</span><span class="token punctuation">,</span>
+  <span class="token property">&quot;trailingComma&quot;</span><span class="token operator">:</span> <span class="token string">&quot;es5&quot;</span><span class="token punctuation">,</span>
+  <span class="token property">&quot;printWidth&quot;</span><span class="token operator">:</span> <span class="token number">100</span><span class="token punctuation">,</span>
+  <span class="token property">&quot;tabWidth&quot;</span><span class="token operator">:</span> <span class="token number">2</span><span class="token punctuation">,</span>
+  <span class="token property">&quot;endOfLine&quot;</span><span class="token operator">:</span> <span class="token string">&quot;auto&quot;</span><span class="token punctuation">,</span>
+  <span class="token property">&quot;overrides&quot;</span><span class="token operator">:</span> <span class="token punctuation">[</span>
+    <span class="token punctuation">{</span>
+      <span class="token property">&quot;files&quot;</span><span class="token operator">:</span> <span class="token string">&quot;.prettierrc&quot;</span><span class="token punctuation">,</span>
+      <span class="token property">&quot;options&quot;</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+        <span class="token property">&quot;parser&quot;</span><span class="token operator">:</span> <span class="token string">&quot;json&quot;</span>
+      <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span><span class="token punctuation">,</span>
+    <span class="token punctuation">{</span>
+      <span class="token property">&quot;files&quot;</span><span class="token operator">:</span> <span class="token string">&quot;.less&quot;</span><span class="token punctuation">,</span>
+      <span class="token property">&quot;options&quot;</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+        <span class="token property">&quot;parser&quot;</span><span class="token operator">:</span> <span class="token string">&quot;css&quot;</span>
+      <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span>
+  <span class="token punctuation">]</span>
+<span class="token punctuation">}</span>
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br><span class="line-number">16</span><br><span class="line-number">17</span><br><span class="line-number">18</span><br><span class="line-number">19</span><br><span class="line-number">20</span><br><span class="line-number">21</span><br></div></div><p>让<code>eslint</code>能校验到<code>prettier</code></p> <p>安装依赖</p> <div class="language-sh line-numbers-mode"><pre class="language-sh"><code><span class="token function">yarn</span> <span class="token function">add</span> eslint-config-prettier eslint-plugin-prettier prettier -D
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br></div></div><p>修改<code>.eslintrc.js</code>添加<code>prettier</code>的配置</p> <div class="language-diff line-numbers-mode"><pre class="language-diff"><code><span class="token unchanged"><span class="token prefix unchanged"> </span><span class="token line"> plugins: [
+</span><span class="token prefix unchanged"> </span><span class="token line">   'react-app',
+</span><span class="token prefix unchanged"> </span><span class="token line">   '@typescript-eslint',
+</span></span><span class="token inserted-sign inserted"><span class="token prefix inserted">+</span><span class="token line">   'prettier'
+</span></span><span class="token unchanged"><span class="token prefix unchanged"> </span><span class="token line"> ],
+</span><span class="token prefix unchanged"> </span><span class="token line"> extends: [
+</span><span class="token prefix unchanged"> </span><span class="token line">   'plugin:react-app/recommended',
+</span><span class="token prefix unchanged"> </span><span class="token line">   'eslint:recommended',
+</span><span class="token prefix unchanged"> </span><span class="token line">   'plugin:@typescript-eslint/recommended', // Uses the recommended rules from the @typescript-eslint/eslint-plugin
+</span></span><span class="token inserted-sign inserted"><span class="token prefix inserted">+</span><span class="token line">    'prettier',
+</span><span class="token prefix inserted">+</span><span class="token line">    'prettier/@typescript-eslint',
+</span><span class="token prefix inserted">+</span><span class="token line">		 'prettier/react',
+</span><span class="token prefix inserted">+</span><span class="token line">    'plugin:prettier/recommended'
+</span></span><span class="token unchanged"><span class="token prefix unchanged"> </span><span class="token line"> ],
+</span></span></code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br></div></div><p>修改<code>App.tsx</code>文件后重启我们可以看到<code>prettier</code>错误则代表配置成功了</p> <h2 id="加入editorconfig"><a href="#加入editorconfig" class="header-anchor">#</a> 加入<a href="http://editorconfig.org" target="_blank" rel="noopener noreferrer">editorConfig<span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></h2> <p>加入editorConfig用于维护跨多个编辑器和IDE从事同一项目的多个团队成员的编码风格一致。</p> <p>根目录加入<code>.editorconfig</code>文件：</p> <div class="language- line-numbers-mode"><pre class="language-text"><code># http://editorconfig.org
+root = true
+
+[*]
+indent_style = space
+indent_size = 2
+end_of_line = lf
+charset = utf-8
+trim_trailing_whitespace = true
+insert_final_newline = true
+
+[*.md]
+trim_trailing_whitespace = false
+
+[Makefile]
+indent_style = tab
+
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br><span class="line-number">16</span><br><span class="line-number">17</span><br></div></div><h2 id="加入webpackalias"><a href="#加入webpackalias" class="header-anchor">#</a> 加入webpackAlias</h2> <div class="language-diff line-numbers-mode"><pre class="language-diff"><code>/*config-overrides.js*/
+
+const {
+<span class="token unchanged"><span class="token prefix unchanged"> </span><span class="token line">   override,
+</span></span><span class="token inserted-sign inserted"><span class="token prefix inserted">+</span><span class="token line">    addWebpackAlias,
+</span></span>} = require('customize-cra');
+<span class="token inserted-sign inserted"><span class="token prefix inserted">+</span><span class="token line"> const path = require('path');
+</span></span>...
+module.exports = {
+<span class="token unchanged"><span class="token prefix unchanged"> </span><span class="token line">   webpack: override(
+</span><span class="token prefix unchanged"> </span><span class="token line">       useEslintConfig(),
+</span></span><span class="token inserted-sign inserted"><span class="token prefix inserted">+</span><span class="token line">        addWebpackAlias({
+</span><span class="token prefix inserted">+</span><span class="token line">          ['@']: path.resolve(__dirname, 'src'),
+</span><span class="token prefix inserted">+</span><span class="token line">          ['assets']: path.resolve(__dirname, 'src/assets'),
+</span><span class="token prefix inserted">+</span><span class="token line">          ['components']: path.resolve(__dirname, 'src/components'),
+</span><span class="token prefix inserted">+</span><span class="token line">        })
+</span></span><span class="token unchanged"><span class="token prefix unchanged"> </span><span class="token line">   ),
+</span></span>}
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br><span class="line-number">16</span><br><span class="line-number">17</span><br><span class="line-number">18</span><br></div></div><h2 id="关于样式"><a href="#关于样式" class="header-anchor">#</a> 关于样式</h2> <h3 id="引入全局样式文件"><a href="#引入全局样式文件" class="header-anchor">#</a> 引入全局样式文件</h3> <p>样式我使用<code>less</code>作为预处理语言，我们之前如果想要在每个less文件里使用一些全局的常量，只能把文件通过<code>@import</code>的方式引入。现在我们可以通过<code>customize-cra</code>的<code>addLessLoader</code>来实现。</p> <div class="language-shell line-numbers-mode"><pre class="language-shell"><code><span class="token function">yarn</span> <span class="token function">add</span> less-loader -D
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br></div></div><div class="language-diff line-numbers-mode"><pre class="language-diff"><code>/*config-overrides.js*/
+
+const {
+<span class="token unchanged"><span class="token prefix unchanged"> </span><span class="token line">   override,
+</span></span><span class="token inserted-sign inserted"><span class="token prefix inserted">+</span><span class="token line">    addLessLoader
+</span></span>} = require('customize-cra');
+...
+module.exports = {
+<span class="token unchanged"><span class="token prefix unchanged"> </span><span class="token line">   webpack: override(
+</span><span class="token prefix unchanged"> </span><span class="token line">       useEslintConfig(),
+</span></span><span class="token inserted-sign inserted"><span class="token prefix inserted">+</span><span class="token line">        addLessLoader({
+</span><span class="token prefix inserted">+</span><span class="token line">        lessOptions: {
+</span><span class="token prefix inserted">+</span><span class="token line">           javascriptEnabled: true,
+</span><span class="token prefix inserted">+</span><span class="token line">           modifyVars: {
+</span><span class="token prefix inserted">+</span><span class="token line">             hack: `true; @import &quot;~@/assets/styles/mixin.less&quot;;`,
+</span><span class="token prefix inserted">+</span><span class="token line">           },
+</span><span class="token prefix inserted">+</span><span class="token line">         },
+</span><span class="token prefix inserted">+</span><span class="token line">        }),
+</span></span><span class="token unchanged"><span class="token prefix unchanged"> </span><span class="token line">   ),
+</span></span>}
+
+
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br><span class="line-number">16</span><br><span class="line-number">17</span><br><span class="line-number">18</span><br><span class="line-number">19</span><br><span class="line-number">20</span><br><span class="line-number">21</span><br><span class="line-number">22</span><br></div></div><h3 id="加入cssmodule支持"><a href="#加入cssmodule支持" class="header-anchor">#</a> 加入<code>cssModule</code>支持</h3> <div class="language-diff line-numbers-mode"><pre class="language-diff"><code>/*config-overrides.js*/
+module.exports = {
+<span class="token unchanged"><span class="token prefix unchanged"> </span><span class="token line">   webpack: override(
+</span><span class="token prefix unchanged"> </span><span class="token line">       useEslintConfig(),
+</span><span class="token prefix unchanged"> </span><span class="token line">       addLessLoader({
+</span><span class="token prefix unchanged"> </span><span class="token line">         javascriptEnabled: true,
+</span><span class="token prefix unchanged"> </span><span class="token line">         modifyVars: {
+</span><span class="token prefix unchanged"> </span><span class="token line">           hack: `true; @import &quot;~@/assets/styles/mixin.less&quot;;`,
+</span><span class="token prefix unchanged"> </span><span class="token line">         },
+</span></span><span class="token inserted-sign inserted"><span class="token prefix inserted">+</span><span class="token line">         localIdentName: '[local]_[hash:base64:5]',
+</span><span class="token prefix inserted">+</span><span class="token line">      		cssModules: true,
+</span></span><span class="token unchanged"><span class="token prefix unchanged"> </span><span class="token line">       }),
+</span><span class="token prefix unchanged"> </span><span class="token line">   ),
+</span></span>}
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br></div></div><p>加入之后我们在<code>App.tsx</code>的同级新建一个文件<code>App.module.less</code>，注意的是，<code>module</code>文件必须要以<code>module.less</code>结尾</p> <div class="language-less line-numbers-mode"><pre class="language-less"><code><span class="token selector">.app</span><span class="token punctuation">{</span>
+  <span class="token property">background</span><span class="token punctuation">:</span> red<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br></div></div><p>修改App.tsx文件</p> <div class="language-tsx line-numbers-mode"><pre class="language-tsx"><code><span class="token keyword">import</span> React <span class="token keyword">from</span> <span class="token string">'react'</span><span class="token punctuation">;</span>
+<span class="token keyword">import</span> styles <span class="token keyword">from</span> <span class="token string">'./App.module.less'</span><span class="token punctuation">;</span>
+
+<span class="token keyword">function</span> <span class="token function">App</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token keyword">return</span> <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">className</span><span class="token script language-javascript"><span class="token script-punctuation punctuation">=</span><span class="token punctuation">{</span>styles<span class="token punctuation">.</span>app<span class="token punctuation">}</span></span><span class="token punctuation">&gt;</span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">&gt;</span></span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+
+<span class="token keyword">export</span> <span class="token keyword">default</span> App<span class="token punctuation">;</span>
+
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br></div></div><p>然后我们就可以看到样式名后面加了一个hash值，说明cssModule生效了</p> <p><img src="img/cra-1.jpg" alt=""></p> <h3 id="加入stylelint校验"><a href="#加入stylelint校验" class="header-anchor">#</a> 加入stylelint校验</h3> <p>对于样式的格式，我们也可以使用stylelint来校验</p> <p>在根目录添加<code>.stylelintrc.json</code>文件</p> <div class="language-json line-numbers-mode"><pre class="language-json"><code><span class="token punctuation">{</span>
+  <span class="token property">&quot;extends&quot;</span><span class="token operator">:</span> <span class="token punctuation">[</span><span class="token string">&quot;stylelint-config-standard&quot;</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
+  <span class="token property">&quot;rules&quot;</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br></div></div><p>安装依赖</p> <div class="language-shell line-numbers-mode"><pre class="language-shell"><code><span class="token function">yarn</span> <span class="token function">add</span> -D stylelint-config-standard
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br></div></div><p>修改config-overrides.js文件加入StyleLintPlugin</p> <div class="language-diff line-numbers-mode"><pre class="language-diff"><code>/*config-overrides.js*/
+const { 
+	override, 
+	addWebpackAlias, 
+	addLessLoader, 
+<span class="token inserted-sign inserted"><span class="token prefix inserted">+</span><span class="token line">	addWebpackPlugin 
+</span></span>} = require('customize-cra');
+<span class="token inserted-sign inserted"><span class="token prefix inserted">+</span><span class="token line"> const StyleLintPlugin = require('stylelint-webpack-plugin');
+</span></span>
+module.exports = {
+<span class="token unchanged"><span class="token prefix unchanged"> </span><span class="token line">   webpack: override(
+</span><span class="token prefix unchanged"> </span><span class="token line">       useEslintConfig(),
+</span></span><span class="token inserted-sign inserted"><span class="token prefix inserted">+</span><span class="token line">        addWebpackPlugin(
+</span><span class="token prefix inserted">+</span><span class="token line">          new StyleLintPlugin({
+</span><span class="token prefix inserted">+</span><span class="token line">            context: 'src',
+</span><span class="token prefix inserted">+</span><span class="token line">            configFile: path.resolve(__dirname, './.stylelintrc.json'),
+</span><span class="token prefix inserted">+</span><span class="token line">            files: '**/*.less',
+</span><span class="token prefix inserted">+</span><span class="token line">            failOnError: false,
+</span><span class="token prefix inserted">+</span><span class="token line">            quiet: true,
+</span><span class="token prefix inserted">+</span><span class="token line">            fix: true, // 修复不规范的样式代码
+</span><span class="token prefix inserted">+</span><span class="token line">          })
+</span><span class="token prefix inserted">+</span><span class="token line">        )
+</span></span><span class="token unchanged"><span class="token prefix unchanged"> </span><span class="token line">   ),
+</span></span>}
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br><span class="line-number">16</span><br><span class="line-number">17</span><br><span class="line-number">18</span><br><span class="line-number">19</span><br><span class="line-number">20</span><br><span class="line-number">21</span><br><span class="line-number">22</span><br><span class="line-number">23</span><br><span class="line-number">24</span><br></div></div><p>重启之后我们发现已经自动把less文件里的错误修复了，说明配置成功~</p> <h3 id="加入postcss"><a href="#加入postcss" class="header-anchor">#</a> 加入postcss</h3> <p>在这里，我们使用了<code>customize-cra</code>的<code>addPostcssPlugins，修改</code>config-overrides`文件，加入如下代码：</p> <div class="language-diff line-numbers-mode"><pre class="language-diff"><code>/*config-overrides.js*/
+const { 
+	override, 
+	addWebpackAlias, 
+	addLessLoader, 
+<span class="token inserted-sign inserted"><span class="token prefix inserted">+</span><span class="token line">	addPostcssPlugins, 
+</span></span>} = require('customize-cra');
+
+module.exports = {
+<span class="token unchanged"><span class="token prefix unchanged"> </span><span class="token line">   webpack: override(
+</span><span class="token prefix unchanged"> </span><span class="token line">       useEslintConfig(),
+</span></span><span class="token inserted-sign inserted"><span class="token prefix inserted">+</span><span class="token line">        addPostcssPlugins([
+</span><span class="token prefix inserted">+</span><span class="token line">          require('postcss-px-to-viewport')({
+</span><span class="token prefix inserted">+</span><span class="token line">            unitToConvert: 'px',
+</span><span class="token prefix inserted">+</span><span class="token line">            viewportWidth: 1920,
+</span><span class="token prefix inserted">+</span><span class="token line">            unitPrecision: 3,
+</span><span class="token prefix inserted">+</span><span class="token line">            propList: ['*', '!letter-spacing', '!font-size'],
+</span><span class="token prefix inserted">+</span><span class="token line">            viewportUnit: 'vw',
+</span><span class="token prefix inserted">+</span><span class="token line">            fontViewportUnit: 'vw',
+</span><span class="token prefix inserted">+</span><span class="token line">            selectorBlackList: [],
+</span><span class="token prefix inserted">+</span><span class="token line">            minPixelValue: 2,
+</span><span class="token prefix inserted">+</span><span class="token line">            mediaQuery: false,
+</span><span class="token prefix inserted">+</span><span class="token line">            replace: true,
+</span><span class="token prefix inserted">+</span><span class="token line">            exclude: [],
+</span><span class="token prefix inserted">+</span><span class="token line">            landscape: false,
+</span><span class="token prefix inserted">+</span><span class="token line">          }),
+</span><span class="token prefix inserted">+</span><span class="token line">        ])
+</span></span><span class="token unchanged"><span class="token prefix unchanged"> </span><span class="token line">   ),
+</span></span>}
+
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br><span class="line-number">16</span><br><span class="line-number">17</span><br><span class="line-number">18</span><br><span class="line-number">19</span><br><span class="line-number">20</span><br><span class="line-number">21</span><br><span class="line-number">22</span><br><span class="line-number">23</span><br><span class="line-number">24</span><br><span class="line-number">25</span><br><span class="line-number">26</span><br><span class="line-number">27</span><br><span class="line-number">28</span><br><span class="line-number">29</span><br><span class="line-number">30</span><br></div></div><div class="language-shell line-numbers-mode"><pre class="language-shell"><code><span class="token function">yarn</span> <span class="token function">add</span> postcss-px-to-viewport -S
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br></div></div><p>这里我使用了<code>postcss-px-to-viewport</code>插件，<code>px</code>单位直接转换为<code>vw</code>，但是字号不转换。</p> <h2 id="加入bundleanalyzerplugin"><a href="#加入bundleanalyzerplugin" class="header-anchor">#</a> 加入<code>BundleAnalyzerPlugin</code></h2> <div class="language-diff line-numbers-mode"><pre class="language-diff"><code>/*config-overrides.js*/
+<span class="token inserted-sign inserted"><span class="token prefix inserted">+</span><span class="token line"> const { BundleAnalyzerPlugin } = require('webpack-bundle-analyzer');
+</span></span>
+module.exports = {
+<span class="token unchanged"><span class="token prefix unchanged"> </span><span class="token line">   webpack: override(
+</span><span class="token prefix unchanged"> </span><span class="token line">       useEslintConfig(),
+</span></span><span class="token inserted-sign inserted"><span class="token prefix inserted">+</span><span class="token line">        addWebpackPlugin(new BundleAnalyzerPlugin()),
+</span></span><span class="token unchanged"><span class="token prefix unchanged"> </span><span class="token line">   ),
+</span></span>}
+
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br></div></div><p>当然，这东西仅在分析的时候开启就好了。</p> <h2 id="加入splitchunk-对模块进行分割"><a href="#加入splitchunk-对模块进行分割" class="header-anchor">#</a> 加入<code>SplitChunk</code> 对模块进行分割</h2> <div class="language-diff line-numbers-mode"><pre class="language-diff"><code>/*config-overrides.js*/
+const { 
+	override, 
+	addWebpackAlias, 
+	addLessLoader, 
+<span class="token inserted-sign inserted"><span class="token prefix inserted">+</span><span class="token line">	setWebpackOptimizationSplitChunks, 
+</span></span>} = require('customize-cra');
+
+module.exports = {
+<span class="token unchanged"><span class="token prefix unchanged"> </span><span class="token line">   webpack: override(
+</span><span class="token prefix unchanged"> </span><span class="token line">      useEslintConfig(),
+</span></span><span class="token inserted-sign inserted"><span class="token prefix inserted">+</span><span class="token line">       setWebpackOptimizationSplitChunks({
+</span><span class="token prefix inserted">+</span><span class="token line">          chunks: 'all', //默认作用于异步chunk，值为all/initial/async
+</span><span class="token prefix inserted">+</span><span class="token line">          minSize: 30000, //默认值是30kb,代码块的最小尺寸
+</span><span class="token prefix inserted">+</span><span class="token line">          minChunks: 1, //被多少模块共享,在分割之前模块的被引用次数
+</span><span class="token prefix inserted">+</span><span class="token line">          maxAsyncRequests: 5, //按需加载最大并行请求数量
+</span><span class="token prefix inserted">+</span><span class="token line">          maxInitialRequests: 5, //一个入口的最大并行请求数量
+</span><span class="token prefix inserted">+</span><span class="token line">          name: true, //打包后的名称，默认是chunk的名字通过分隔符（默认是～）分隔开，如vendor~
+</span><span class="token prefix inserted">+</span><span class="token line">          automaticNameDelimiter: '~', //默认webpack将会使用入口名和代码块的名称生成命名,比如 'vendors~main.js'
+</span><span class="token prefix inserted">+</span><span class="token line">          cacheGroups: {
+</span><span class="token prefix inserted">+</span><span class="token line">            //设置缓存组用来抽取满足不同规则的chunk,下面以生成common为例
+</span><span class="token prefix inserted">+</span><span class="token line">            vendors: {
+</span><span class="token prefix inserted">+</span><span class="token line">              test: /node_modules/, //条件
+</span><span class="token prefix inserted">+</span><span class="token line">              priority: -10, //优先级，一个chunk很可能满足多个缓存组，会被抽取到优先级高的缓存组中,为了能够让自定义缓存组有更高的优先级(默认0),默认缓存组的priority属性为负值.
+</span><span class="token prefix inserted">+</span><span class="token line">            },
+</span><span class="token prefix inserted">+</span><span class="token line">            commons: {
+</span><span class="token prefix inserted">+</span><span class="token line">              minSize: 0, //最小提取字节数
+</span><span class="token prefix inserted">+</span><span class="token line">              minChunks: 2, //最少被几个chunk引用
+</span><span class="token prefix inserted">+</span><span class="token line">              priority: -20,
+</span><span class="token prefix inserted">+</span><span class="token line">              reuseExistingChunk: true, //    如果该chunk中引用了已经被抽取的chunk，直接引用该chunk，不会重复打包代码
+</span><span class="token prefix inserted">+</span><span class="token line">            },
+</span><span class="token prefix inserted">+</span><span class="token line">          },
+</span><span class="token prefix inserted">+</span><span class="token line">        })
+</span></span><span class="token unchanged"><span class="token prefix unchanged"> </span><span class="token line">   ),
+</span></span>}
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br><span class="line-number">16</span><br><span class="line-number">17</span><br><span class="line-number">18</span><br><span class="line-number">19</span><br><span class="line-number">20</span><br><span class="line-number">21</span><br><span class="line-number">22</span><br><span class="line-number">23</span><br><span class="line-number">24</span><br><span class="line-number">25</span><br><span class="line-number">26</span><br><span class="line-number">27</span><br><span class="line-number">28</span><br><span class="line-number">29</span><br><span class="line-number">30</span><br><span class="line-number">31</span><br><span class="line-number">32</span><br><span class="line-number">33</span><br><span class="line-number">34</span><br><span class="line-number">35</span><br></div></div><h2 id="对commit操作做拦截"><a href="#对commit操作做拦截" class="header-anchor">#</a> 对commit操作做拦截</h2> <p>在前面我们已经使用了<code>eslint</code>对代码进行了统一的校验，保证了开发人员在开发的时候规范代码。但是却无法保证错误的<code>eslint</code>校验代码提交到仓库中，那么我们就需要针对<code>git</code>提交之前做一些事情。这个时候<code>husky</code>就发挥作用了。作者的原话就是它就是看门狗形式的存在。</p> <blockquote><p>Husky can prevent bad <code>git commit</code>, <code>git push</code> and more 🐶 <em>woof!</em></p></blockquote> <div class="language-shell line-numbers-mode"><pre class="language-shell"><code><span class="token function">yarn</span> <span class="token function">add</span> husky -D
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br></div></div><div class="language-diff line-numbers-mode"><pre class="language-diff"><code>/*package.json*/
+<span class="token inserted-sign inserted"><span class="token prefix inserted">+</span><span class="token line">&quot;husky&quot;: {
+</span><span class="token prefix inserted">+</span><span class="token line">  &quot;hooks&quot;: {
+</span><span class="token prefix inserted">+</span><span class="token line">    &quot;pre-commit&quot;: &quot;npm run lint-staged&quot;,
+</span><span class="token prefix inserted">+</span><span class="token line">  }
+</span><span class="token prefix inserted">+</span><span class="token line">},
+</span></span></code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br></div></div><p>可以看到，上面的pre-commit运行了一个命令，那么lint-staged是什么呢，它主要的工作是对git暂存的文件执行一些linner。</p> <div class="language-shell line-numbers-mode"><pre class="language-shell"><code><span class="token function">yarn</span> <span class="token function">add</span> lint-staged -D
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br></div></div><div class="language-diff line-numbers-mode"><pre class="language-diff"><code>/*package.json*/
+<span class="token inserted-sign inserted"><span class="token prefix inserted">+</span><span class="token line">&quot;lint-staged&quot;: {
+</span><span class="token prefix inserted">+</span><span class="token line">  &quot;**/*.{ts,tsx}&quot;: [
+</span><span class="token prefix inserted">+</span><span class="token line">    &quot;prettier --write&quot;,
+</span><span class="token prefix inserted">+</span><span class="token line">    &quot;npm run eslint&quot;,
+</span><span class="token prefix inserted">+</span><span class="token line">    &quot;git add&quot;
+</span><span class="token prefix inserted">+</span><span class="token line">  ],
+</span><span class="token prefix inserted">+</span><span class="token line">  &quot;**/*.less&quot;: &quot;npm run stylelint&quot;
+</span><span class="token prefix inserted">+</span><span class="token line">},
+</span></span></code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br></div></div><p>如上述代码，它会对<code>git</code>暂存的<code>ts</code>和<code>tsx</code>文件按顺序执行<code>prettier</code>格式化和<code>eslint</code>校验后才能进行<code>add</code>。</p> <p>有时候我们会发现，团队成员们提交的commit message千奇百怪，根本无法很好地定位到底哪次提交是修复bug，哪次提交是新功能，哪次提交修改了配置，所以这个时候我们需要一个统一的提交message的格式，那么commitlint就来了。</p> <p>新增commitlint.config.js文件</p> <div class="language-javascript line-numbers-mode"><pre class="language-javascript"><code>module<span class="token punctuation">.</span>exports <span class="token operator">=</span> <span class="token punctuation">{</span>
+    <span class="token keyword">extends</span><span class="token operator">:</span> <span class="token punctuation">[</span><span class="token string">'@commitlint/config-conventional'</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
+    rules<span class="token operator">:</span> <span class="token punctuation">{</span>
+        <span class="token string">'type-enum'</span><span class="token operator">:</span> <span class="token punctuation">[</span><span class="token number">2</span><span class="token punctuation">,</span> <span class="token string">'always'</span><span class="token punctuation">,</span> <span class="token punctuation">[</span>
+            <span class="token string">&quot;feat&quot;</span><span class="token punctuation">,</span> <span class="token string">&quot;fix&quot;</span><span class="token punctuation">,</span> <span class="token string">&quot;docs&quot;</span><span class="token punctuation">,</span> <span class="token string">&quot;style&quot;</span><span class="token punctuation">,</span> <span class="token string">&quot;refactor&quot;</span><span class="token punctuation">,</span> <span class="token string">&quot;test&quot;</span><span class="token punctuation">,</span> <span class="token string">&quot;chore&quot;</span>
+        <span class="token punctuation">]</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span><span class="token punctuation">;</span>
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br></div></div><p>修改package.json文件</p> <div class="language-diff line-numbers-mode"><pre class="language-diff"><code>/*package.json*/
+<span class="token unchanged"><span class="token prefix unchanged"> </span><span class="token line"> &quot;husky&quot;: {
+</span><span class="token prefix unchanged"> </span><span class="token line">   &quot;hooks&quot;: {
+</span><span class="token prefix unchanged"> </span><span class="token line">     &quot;pre-commit&quot;: &quot;npm run lint-staged&quot;,
+</span></span><span class="token inserted-sign inserted"><span class="token prefix inserted">+</span><span class="token line">      &quot;commit-msg&quot;: &quot;commitlint -E  HUSKY_GIT_PARAMS&quot;
+</span></span><span class="token unchanged"><span class="token prefix unchanged"> </span><span class="token line">   }
+</span><span class="token prefix unchanged"> </span><span class="token line"> },
+</span></span></code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br></div></div><p>此时你会发现，如果不按config的规则提交，那么就提交不上去。</p> <p>以上，文章开始时提的问题都已经解决。点击阅读原文可以获取源码。</p></div> <footer class="page-edit" style="display:none;"><!----> <!----></footer> <!----> <!----> <!----></main> <!----></div></div></div></div><div class="global-ui"><div class="back-to-ceiling" style="right:1rem;bottom:6rem;width:2.5rem;height:2.5rem;border-radius:.25rem;line-height:2.5rem;display:none;" data-v-c6073ba8 data-v-c6073ba8><svg t="1574745035067" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="5404" class="icon" data-v-c6073ba8><path d="M526.60727968 10.90185116a27.675 27.675 0 0 0-29.21455937 0c-131.36607665 82.28402758-218.69155461 228.01873535-218.69155402 394.07834331a462.20625001 462.20625001 0 0 0 5.36959153 69.94390903c1.00431239 6.55289093-0.34802892 13.13561351-3.76865779 18.80351572-32.63518765 54.11355614-51.75690182 118.55860487-51.7569018 187.94566865a371.06718723 371.06718723 0 0 0 11.50484808 91.98906777c6.53300375 25.50556257 41.68394495 28.14064038 52.69160883 4.22606766 17.37162448-37.73630017 42.14135425-72.50938081 72.80769204-103.21549295 2.18761121 3.04276886 4.15646224 6.24463696 6.40373557 9.22774369a1871.4375 1871.4375 0 0 0 140.04691725 5.34970492 1866.36093723 1866.36093723 0 0 0 140.04691723-5.34970492c2.24727335-2.98310674 4.21612437-6.18497483 6.3937923-9.2178004 30.66633723 30.70611158 55.4360664 65.4791928 72.80769147 103.21549355 11.00766384 23.91457269 46.15860503 21.27949489 52.69160879-4.22606768a371.15156223 371.15156223 0 0 0 11.514792-91.99901164c0-69.36717486-19.13165746-133.82216804-51.75690182-187.92578088-3.42062944-5.66790279-4.76302748-12.26056868-3.76865837-18.80351632a462.20625001 462.20625001 0 0 0 5.36959269-69.943909c-0.00994388-166.08943902-87.32547796-311.81420293-218.6915546-394.09823051zM605.93803103 357.87693858a93.93749974 93.93749974 0 1 1-187.89594924 6.1e-7 93.93749974 93.93749974 0 0 1 187.89594924-6.1e-7z" p-id="5405" data-v-c6073ba8></path><path d="M429.50777625 765.63860547C429.50777625 803.39355007 466.44236686 1000.39046097 512.00932183 1000.39046097c45.56695499 0 82.4922232-197.00623328 82.5015456-234.7518555 0-37.75494459-36.9345906-68.35043303-82.4922232-68.34111062-45.57627738-0.00932239-82.52019037 30.59548842-82.51086798 68.34111062z" p-id="5406" data-v-c6073ba8></path></svg></div></div></div>
+    <script src="/assets/js/app.0817803c.js" defer></script><script src="/assets/js/3.055572ae.js" defer></script><script src="/assets/js/1.0a0762c3.js" defer></script><script src="/assets/js/24.978b984e.js" defer></script>
+  </body>
+</html>
