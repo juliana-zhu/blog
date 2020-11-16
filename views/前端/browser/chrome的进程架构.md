@@ -13,7 +13,7 @@ publish: true
 
 ## chrome的最新进程架构图
 
-![chrome进程架构图](img/chrome_process_framework.png)
+![chrome进程架构图](./img/chrome_process_framework.png)
 
 从图中可以看出，最新的 Chrome 浏览器包括：1 个浏览器（Browser）主进程、1 个 GPU 进程、1 个网络（NetWork）进程、多个渲染进程和多个插件进程。
 
@@ -27,8 +27,8 @@ publish: true
 
 ​	因为多进程的架构会有**更高的资源占用**和**更复杂的体系架构**等问题，chrome团队提出了面向服务的架构，今后，chrome会朝着面向服务的架构发展。
 
-![面向服务的架构](img/face_to_service_framework.png)
+![面向服务的架构](./img/face_to_service_framework.png)
 
 在资源受限的设备上，chrome将会把很多服务整合到一个进程中，从而节省内存占用
 
-![受限设备的服务架构](img/limit_divice_chrome_framework.png)
+![受限设备的服务架构](./img/limit_divice_chrome_framework.png)

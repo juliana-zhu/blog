@@ -383,7 +383,7 @@ export default App;
 ```
 然后我们就可以看到样式名后面加了一个hash值，说明cssModule生效了
 
-![](img/cra-1.jpg)
+![](./img/cra-1.jpg)
 
 ### 加入stylelint校验
 

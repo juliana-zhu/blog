@@ -14,11 +14,11 @@ publish: true
 
 ## Detox 能做些什么
 
-+ [官网](https://github.com/wix/Detox)
+[官网](https://github.com/wix/Detox)
 
-+ 用于移动应用程序的灰盒端到端（E2E）测试和自动化测试工具。
+用于移动应用程序的灰盒端到端（E2E）测试和自动化测试工具。
 
-+ ![img](img/RN-demo.gif)
+![img](./img/RN-demo.gif)
 
 ## 怎么在RN引用
 

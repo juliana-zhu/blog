@@ -34,14 +34,14 @@ Chrome 有个机制，同一个域名同时最多只能建立 6 个连接，如�
 
 ## 发送HTTP请求
 
-![](img/HTTP_request_format.png)
+![](./img/HTTP_request_format.png)
 
 
 ## 服务端处理HTTP请求
 
 ### 返回请求
 
-![](img/service_response_format.png)
+![](./img/service_response_format.png)
 
 ### 断开连接
 
@@ -49,7 +49,7 @@ Chrome 有个机制，同一个域名同时最多只能建立 6 个连接，如�
 
 ## 重定向
 
-![](img/redirect.png)
+![](./img/redirect.png)
 
 ## Q&A
 
@@ -61,4 +61,4 @@ Chrome 有个机制，同一个域名同时最多只能建立 6 个连接，如�
 
   
 
-+ ![](img/browser_resource_cache.png)
++ ![](./img/browser_resource_cache.png)

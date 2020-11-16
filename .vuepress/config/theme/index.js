@@ -22,7 +22,7 @@ module.exports={
     // 作者
     author: 'Juliana',
     // 备案号
-    record: 'xxxx',
+    // record: 'xxxx',
     // 项目开始时间
     startYear: '2019',
     /**
