@@ -1,7 +1,7 @@
 const themeConfig = require('./config/theme')
 module.exports = {
     dest: 'public',
-    base: '/blog/',
+    base: '/',
     title: "🐾前端meow同学",
     description: 'Juliana',
     head: [

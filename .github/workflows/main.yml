@@ -17,11 +17,14 @@ jobs:
         run: |
           npm install
           npm run build
-
-      - name: Deploy 🚀
-        uses: JamesIves/github-pages-deploy-action@3.7.1
+        env:
+          CI: true
+      # 设置阿里云OSS的 id/secret，存储到 github 的 secrets 中
+      - name: setup aliyun oss
+        uses: manyuanrong/setup-ossutil@master
         with:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          BRANCH: gh-pages # The branch the action should deploy to.
-          FOLDER: public # The folder the action should deploy.
-          CLEAN: true # Automatically remove deleted files from the deploy branch
+          endpoint: oss-cn-shenzhen.aliyuncs.com
+          access-key-id: ${{ secrets.OSS_KEY_ID }}
+          access-key-secret: ${{ secrets.OSS_KEY_SECRET }}
+      - name: cp files to aliyun
+        run: ossutil cp -rf public oss://zhulijie-blog/
