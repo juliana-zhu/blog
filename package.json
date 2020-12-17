@@ -3,11 +3,10 @@
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
-  "homepage": "https://juliazlj.github.io/blog",
+  "homepage": "https://blog.zhulijie.cn",
   "scripts": {
     "dev": "vuepress dev .",
-    "build": "vuepress build .",
-    "deploy": "bash deploy.sh"
+    "build": "vuepress build ."
   },
   "keywords": [],
   "author": "",
