@@ -40,3 +40,6 @@ vue 基于它对数据的劫持可以清楚知道什么组件依赖数据，应�
 ## 相同点
 ### virtualDom
 react和vue都有virtualDom的概念，因为改变JavaScript对象远远比直接改变真实dom消耗的小，react和vue都需要做节点的渲染，diff比对等都基于virtualDom。
+
+## 其他参考
++ [Vue 和 React 的优点分别是什么？](https://www.zhihu.com/question/301860721/answer/724759264)

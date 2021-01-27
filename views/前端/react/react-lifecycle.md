@@ -38,5 +38,6 @@ publish: true
   }
   ```
 
-+ 
+## react 17
+`willMount` `willUpdate` `willReceiveProps` 废弃了
 
