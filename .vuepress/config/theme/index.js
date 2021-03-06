@@ -1,4 +1,4 @@
-module.exports={
+module.exports = {
     type: 'blog',
     // 博客配置
     blogConfig: {
@@ -22,7 +22,7 @@ module.exports={
     // 作者
     author: 'Juliana',
     // 备案号
-    // record: 'xxxx',
+    record: '粤ICP备2020125275号-1',
     // 项目开始时间
     startYear: '2019',
     /**
@@ -35,6 +35,8 @@ module.exports={
      */
     codeTheme: 'funky', // default 'tomorrow'
     nav: [
-        {text: '主页', link: '/', icon: 'reco-coding'},
+        { text: '主页', link: '/', icon: 'reco-coding' },
+        { text: 'GitHub',  icon: 'reco-github', link: 'https://github.com/Juliazlj' },
     ],
+    lastUpdated: '更新时间',
 }

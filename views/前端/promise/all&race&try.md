@@ -14,6 +14,7 @@ publish: true
 ```javascript
 
 const isPromise = value => {
+  // 可能是类也可能是函数
   if ((typeof value === 'object' && value !== null) || typeof value === 'function') {
     return typeof value.then === 'function'
   }

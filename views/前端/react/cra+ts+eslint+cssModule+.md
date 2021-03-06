@@ -605,4 +605,4 @@ module.exports = {
 
 此时你会发现，如果不按config的规则提交，那么就提交不上去。
 
-以上，文章开始时提的问题都已经解决。点击阅读原文可以获取源码。
+以上，文章开始时提的问题都已经解决。[点击](https://github.com/Juliazlj/cra-template-quick-dva)可以获取源码。

@@ -62,3 +62,5 @@ Chrome 有个机制，同一个域名同时最多只能建立 6 个连接，如�
   
 
 + ![](./img/browser_resource_cache.png)
+
+
