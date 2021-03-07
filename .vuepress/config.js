@@ -6,7 +6,9 @@ module.exports = {
     description: 'Juliana',
     head: [
         ['link', { rel: 'icon', href: '/favicon.ico' }],
-        ['meta', { name: 'viewport', content: 'width=device-width,initial-scale=1,user-scalable=no' }]
+        ['meta', { name: 'viewport', content: 'width=device-width,initial-scale=1,user-scalable=no' }],
+        ['meta', { name: 'keywords', content: 'juliana|前端meow同学' }],
+        ['meta', { name: 'description', content: '前端meow同学的空间' }],
     ],
     markdown: {
         lineNumbers: true
