@@ -1,16 +1,15 @@
 ---
-title: cli
+title: 如何创建一个自己的cli
 date: 2021-02-25
 sidebar: 'auto'
 categories:
  - 前端
 tags:
- - cli
- - webpack
-publish: false
+ - 脚手架
+sticky: 1
 ---
 
-# 自建一个cli
+# 如何创建一个自己的cli
 
 ## 创建cli项目
 
