@@ -15,7 +15,7 @@ tags:
 + `monorepo` 最主要的好处是统一的工作流和代码共享
 + `lerna`是一个管理多个 npm 模块的工具,优化维护多包的工作流，解决多个包互相依赖，且发布需要手动维护多个包的问题
   
-![](./img/普通多仓库和monorepo项目区别.png)
+![](./img/diff-monorepo.png)
 
 ## 安装lerna
 ```shell
