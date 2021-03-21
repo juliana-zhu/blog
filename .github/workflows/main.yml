@@ -1,9 +1,9 @@
 name: Build and Deploy
 on:
   push:
-    branches: [ master ]
+    branches: [master]
   pull_request:
-    branches: [ master ]
+    branches: [master]
 jobs:
   build-and-deploy:
     runs-on: ubuntu-latest
@@ -28,3 +28,27 @@ jobs:
           access-key-secret: ${{ secrets.OSS_KEY_SECRET }}
       - name: cp files to aliyun
         run: ossutil cp -rf public oss://zhulijie-blog/
+      - name: send email
+        uses: dawidd6/action-send-mail@v2
+        with:
+          serveraddress: smtp.qq.com
+          serverport: 465
+          username: ${{secrets.MAIL_USERNAME}}
+          password: ${{secrets.MAIL_PASSWORD}}
+          subject: Github Actions Blog build success
+          # Literal body:
+          body: Build job of ${{github.repository}} completed successfully!
+          # Read file contents as body:
+          body: file://README.md
+          to: 408934141@qq.com
+          from: Juliana # <user@example.com>
+          # Optional carbon copy recipients
+          # cc: kyloren@example.com,leia@example.com
+          # Optional blind carbon copy recipients
+          # bcc: r2d2@example.com,hansolo@example.com
+          # Optional content type (defaults to text/plain):
+          content_type: text/html
+          # Optional converting Markdown to HTML (set content_type to text/html too):
+          convert_markdown: true
+          # Optional attachments:
+          attachments: attachments.zip,git.diff
