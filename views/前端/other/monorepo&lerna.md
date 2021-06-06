@@ -53,8 +53,8 @@ tags:
 |给根空间添加依赖|	yarn add chalk cross-spawn fs-extra --ignore-workspace-root-check|
 |给某个项目添加依赖	|yarn workspace [子项目名] add commander |
 |删除所有的 node_modules|	lerna clean 等于 yarn workspaces run clean |
-|安装和link	|yarn install 等于 lerna bootstrap  |--npm-client yarn --use-workspaces |
-|重新获取所有的 |node_modules	yarn install --force |
+|安装和link	|yarn install 等于 lerna bootstrap  --npm-client yarn --use-workspaces |
+|重新获取所有的 |yarn install --force |
 |查看缓存目录	|yarn cache dir |
 |清除本地缓存	|yarn cache clean |
 

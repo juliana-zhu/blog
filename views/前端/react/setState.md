@@ -7,7 +7,7 @@ categories:
 tags:
  - React
  - 面试题
-publish: false
+publish: true
 ---
 
 先看一个用遍了的栗子

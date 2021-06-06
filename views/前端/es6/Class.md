@@ -5,7 +5,7 @@ sidebar: 'auto'
 categories:
  - 前端
 tags:
- - es6
+ - ES6
 publish: true
 ---
 # 类和继承
