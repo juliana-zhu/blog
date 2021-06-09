@@ -31,15 +31,15 @@ jobs:
       - name: send email
         uses: dawidd6/action-send-mail@v2
         with:
-          serveraddress: smtp.qq.com
-          serverport: 465
+          server_address: smtp.qq.com
+          server_port: 465
           username: ${{secrets.MAIL_USERNAME}}
           password: ${{secrets.MAIL_PASSWORD}}
           subject: Github Actions Blog build success
           # Literal body:
           body: Build job of ${{github.repository}} completed successfully!
           # Read file contents as body:
-          body: file://README.md
+          # body: file://README.md
           to: 408934141@qq.com
           from: Juliana # <user@example.com>
           # Optional carbon copy recipients
@@ -51,4 +51,4 @@ jobs:
           # Optional converting Markdown to HTML (set content_type to text/html too):
           convert_markdown: true
           # Optional attachments:
-          attachments: attachments.zip,git.diff
+          # attachments: git.diff
