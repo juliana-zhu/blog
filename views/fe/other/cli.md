@@ -6,7 +6,6 @@ categories:
  - 前端
 tags:
  - 脚手架
-sticky: 1
 ---
 
 # 如何创建一个自己的cli
