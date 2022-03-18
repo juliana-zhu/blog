@@ -23,6 +23,8 @@ module.exports = {
     author: 'Juliana',
     // 备案号
     record: '粤ICP备2020125275号-1',
+    // 备案链接
+    recordLink: 'https://beian.miit.gov.cn/',
     // 项目开始时间
     startYear: '2019',
     /**
